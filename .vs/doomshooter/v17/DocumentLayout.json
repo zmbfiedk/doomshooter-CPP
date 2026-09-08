@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\doomshooter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|solutionrelative:doomshooter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "doomshooter.cpp",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\doomshooter.cpp",
+              "RelativeDocumentMoniker": "doomshooter.cpp",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\doomshooter.cpp",
+              "RelativeToolTip": "doomshooter.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-08T07:56:44.312Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
