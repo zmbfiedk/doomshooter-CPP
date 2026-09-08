@@ -1,2 +1,8 @@
-﻿  doomshooter.cpp
-  doomshooter.vcxproj -> C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\x64\Debug\doomshooter.exe
+﻿Inputsystem.obj : error LNK2005: "public: bool __cdecl InputSystem::IsPressed(enum InputAction)const " (?IsPressed@InputSystem@@QEBA_NW4InputAction@@@Z) already defined in InputAction.obj
+Inputsystem.obj : error LNK2005: "public: void __cdecl InputSystem::Update(void)" (?Update@InputSystem@@QEAAXXZ) already defined in InputAction.obj
+Player.obj : error LNK2019: unresolved external symbol "public: void __cdecl Player::MoveForward(void)" (?MoveForward@Player@@QEAAXXZ) referenced in function "public: void __cdecl Player::Update(class InputSystem const &)" (?Update@Player@@QEAAXAEBVInputSystem@@@Z)
+Player.obj : error LNK2019: unresolved external symbol "public: void __cdecl Player::MoveBackward(void)" (?MoveBackward@Player@@QEAAXXZ) referenced in function "public: void __cdecl Player::Update(class InputSystem const &)" (?Update@Player@@QEAAXAEBVInputSystem@@@Z)
+Player.obj : error LNK2019: unresolved external symbol "public: void __cdecl Player::RotateLeft(void)" (?RotateLeft@Player@@QEAAXXZ) referenced in function "public: void __cdecl Player::Update(class InputSystem const &)" (?Update@Player@@QEAAXAEBVInputSystem@@@Z)
+Player.obj : error LNK2019: unresolved external symbol "public: void __cdecl Player::RotateRight(void)" (?RotateRight@Player@@QEAAXXZ) referenced in function "public: void __cdecl Player::Update(class InputSystem const &)" (?Update@Player@@QEAAXAEBVInputSystem@@@Z)
+Player.obj : error LNK2019: unresolved external symbol "public: void __cdecl Player::Shoot(void)" (?Shoot@Player@@QEAAXXZ) referenced in function "public: void __cdecl Player::Update(class InputSystem const &)" (?Update@Player@@QEAAXAEBVInputSystem@@@Z)
+C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\x64\Debug\doomshooter.exe : fatal error LNK1120: 5 unresolved externals
