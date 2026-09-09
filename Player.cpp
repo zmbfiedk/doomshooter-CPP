@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include <cmath>
+
 Player::Player()
     : m_x(2.0f),
     m_y(2.0f),
@@ -11,17 +13,28 @@ Player::Player()
 
 void Player::Update(const InputSystem& input)
 {
-    if (input.IsPressed(InputAction::MoveForward))
-        MoveForward();
+    const float forward = static_cast<float>(
+        input.IsPressed(InputAction::MoveForward) - input.IsPressed(InputAction::MoveBackward));
+    const float strafe = static_cast<float>(
+        input.IsPressed(InputAction::MoveRight) - input.IsPressed(InputAction::MoveLeft));
 
-    if (input.IsPressed(InputAction::MoveBackward))
-        MoveBackward();
+    const float movementLength = std::sqrt(forward * forward + strafe * strafe);
+    if (movementLength > 0.0f)
+    {
+        const float normalizedForward = forward / movementLength;
+        const float normalizedStrafe = strafe / movementLength;
+        const float sinRotation = std::sin(m_rotation);
+        const float cosRotation = std::cos(m_rotation);
 
-    if (input.IsPressed(InputAction::MoveLeft))
-        MoveLeft();
+        m_x += (sinRotation * normalizedForward + cosRotation * normalizedStrafe) * m_moveSpeed;
+        m_y += (cosRotation * normalizedForward - sinRotation * normalizedStrafe) * m_moveSpeed;
+    }
 
-    if (input.IsPressed(InputAction::MoveRight))
-        MoveRight();
+    if (input.IsPressed(InputAction::RotateLeft))
+        RotateLeft();
+
+    if (input.IsPressed(InputAction::RotateRight))
+        RotateRight();
 
     if (input.IsPressed(InputAction::Shoot))
         Shoot();

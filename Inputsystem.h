@@ -1,5 +1,7 @@
 #pragma once
 
+#include <bitset>
+
 #include "InputAction.h"
 
 class InputSystem
@@ -10,5 +12,5 @@ public:
     bool IsPressed(InputAction action) const;
 
 private:
-    InputAction m_currentAction = InputAction::None;
+    std::bitset<static_cast<size_t>(InputAction::Count)> m_actions;
 };
