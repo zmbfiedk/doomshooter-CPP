@@ -7,6 +7,9 @@ enum class InputAction
     MoveBackward,
     MoveLeft,
     MoveRight,
+    RotateLeft,
+    RotateRight,
     Shoot,
-    Quit
+    Quit,
+    Count
 };

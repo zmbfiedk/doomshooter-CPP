@@ -31,6 +31,12 @@ int main()
             if (input.IsPressed(InputAction::MoveRight))
                 std::cout << "[INPUT] Right\n";
 
+            if (input.IsPressed(InputAction::RotateLeft))
+                std::cout << "[INPUT] Rotate left\n";
+
+            if (input.IsPressed(InputAction::RotateRight))
+                std::cout << "[INPUT] Rotate right\n";
+
             if (input.IsPressed(InputAction::Shoot))
                 std::cout << "[INPUT] Shoot\n";
         }
@@ -48,6 +54,8 @@ int main()
                 << player.GetX()
                 << " Y: "
                 << player.GetY()
+                << " Rotation: "
+                << player.GetRotation()
                 << '\n';
         }
     }
