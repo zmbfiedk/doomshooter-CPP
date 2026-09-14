@@ -1,63 +1,67 @@
 #include <iostream>
+#include <cmath>
+#include <string>
+#include <vector>
 
 #include "InputSystem.h"
+#include "Map.h"
 #include "Player.h"
+
+void RenderMap(const Map& map, const Player& player)
+{
+    std::cout << "\x1b[2J\x1b[H";
+    std::cout << "WASD move | Arrow keys rotate | Space shoot | Esc quit\n\n";
+
+    const int playerX = static_cast<int>(std::floor(player.GetX()));
+    const int playerY = static_cast<int>(std::floor(player.GetY()));
+
+    for (int y = 0; y < map.GetHeight(); ++y)
+    {
+        std::string row = map.GetRow(y);
+        if (y == playerY && playerX >= 0 && playerX < map.GetWidth())
+            row[playerX] = '@';
+
+        std::cout << row << '\n';
+    }
+
+    std::cout << "\n[PLAYER] X: "
+        << player.GetX()
+        << " Y: "
+        << player.GetY()
+        << " Rotation: "
+        << player.GetRotation()
+        << '\n';
+}
 
 int main()
 {
+    const Map map({
+        "############",
+        "#P.........#",
+        "#..####....#",
+        "#..........#",
+        "#....##....#",
+        "#..........#",
+        "############"
+    });
+
     InputSystem input;
-    Player player;
+    Player player(map);
 
     bool running = true;
-
-    bool debugInput = true;
-    bool debugPlayer = true;
 
     while (running)
     {
         input.Update();
 
-        if (debugInput)
-        {
-            if (input.IsPressed(InputAction::MoveForward))
-                std::cout << "[INPUT] Forward\n";
-
-            if (input.IsPressed(InputAction::MoveBackward))
-                std::cout << "[INPUT] Backward\n";
-
-            if (input.IsPressed(InputAction::MoveLeft))
-                std::cout << "[INPUT] Left\n";
-
-            if (input.IsPressed(InputAction::MoveRight))
-                std::cout << "[INPUT] Right\n";
-
-            if (input.IsPressed(InputAction::RotateLeft))
-                std::cout << "[INPUT] Rotate left\n";
-
-            if (input.IsPressed(InputAction::RotateRight))
-                std::cout << "[INPUT] Rotate right\n";
-
-            if (input.IsPressed(InputAction::Shoot))
-                std::cout << "[INPUT] Shoot\n";
-        }
-
         if (input.IsPressed(InputAction::Quit))
         {
             running = false;
+            continue;
         }
 
         player.Update(input);
-
-        if (debugPlayer)
-        {
-            std::cout << "[PLAYER] X: "
-                << player.GetX()
-                << " Y: "
-                << player.GetY()
-                << " Rotation: "
-                << player.GetRotation()
-                << '\n';
-        }
+        RenderMap(map, player);
     }
 
     return 0;
