@@ -6,7 +6,7 @@ Player::Player(const Map& map)
     : m_x(map.GetPlayerStartX()),
     m_y(map.GetPlayerStartY()),
     m_rotation(0.0f),
-    m_moveSpeed(0.1f),
+    m_moveSpeed(1.0f),
     m_rotationSpeed(0.1f),
     m_radius(0.2f),
     m_map(map)
@@ -20,18 +20,15 @@ void Player::Update(const InputSystem& input)
     const float strafe = static_cast<float>(
         input.IsPressed(InputAction::MoveRight) - input.IsPressed(InputAction::MoveLeft));
 
-    const float movementLength = std::sqrt(forward * forward + strafe * strafe);
-    if (movementLength > 0.0f)
+    if (forward != 0.0f || strafe != 0.0f)
     {
-        const float normalizedForward = forward / movementLength;
-        const float normalizedStrafe = strafe / movementLength;
         const float sinRotation = std::sin(m_rotation);
         const float cosRotation = std::cos(m_rotation);
 
         const float movementX =
-            (sinRotation * normalizedForward + cosRotation * normalizedStrafe) * m_moveSpeed;
+            (sinRotation * forward + cosRotation * strafe) * m_moveSpeed;
         const float movementY =
-            (cosRotation * normalizedForward - sinRotation * normalizedStrafe) * m_moveSpeed;
+            (cosRotation * forward - sinRotation * strafe) * m_moveSpeed;
 
         TryMove(movementX, 0.0f);
         TryMove(0.0f, movementY);
