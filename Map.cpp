@@ -88,8 +88,12 @@ bool Map::CanOccupy(float x, float y, float radius) const
             if (IsWalkable(tileX, tileY))
                 continue;
 
-            const float closestX = std::clamp(x, static_cast<float>(tileX), static_cast<float>(tileX + 1));
-            const float closestY = std::clamp(y, static_cast<float>(tileY), static_cast<float>(tileY + 1));
+            const float closestX = std::max(
+                static_cast<float>(tileX),
+                std::min(x, static_cast<float>(tileX + 1)));
+            const float closestY = std::max(
+                static_cast<float>(tileY),
+                std::min(y, static_cast<float>(tileY + 1)));
             const float distanceX = x - closestX;
             const float distanceY = y - closestY;
 
