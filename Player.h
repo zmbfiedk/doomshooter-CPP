@@ -9,7 +9,7 @@ class Player
 public:
     explicit Player(const Map& map);
 
-    void Update(const InputSystem& input);
+    void Update(const InputSystem& input, float deltaTime);
 
     void MoveForward();
     void MoveBackward();
