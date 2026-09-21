@@ -146,6 +146,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Raycaster.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="WeaponRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputAction.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Raycaster.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="WeaponRenderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
