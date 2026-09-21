@@ -5,6 +5,7 @@
 #include "Map.h"
 #include "Player.h"
 #include "Raycaster.h"
+#include "Renderer.h"
 
 int main()
 {
@@ -30,6 +31,7 @@ int main()
     InputSystem input;
     Player player(map);
     Raycaster raycaster;
+    Renderer renderer(960, 540);
 
     while (window.isOpen())
     {
@@ -46,9 +48,8 @@ int main()
 
         player.Update(input);
         const std::vector<RayHit> hits = raycaster.CastView(map, player, 960);
-        (void)hits;
 
-        window.clear(sf::Color(30, 36, 50));
+        renderer.Render(window, hits);
         window.display();
     }
 
