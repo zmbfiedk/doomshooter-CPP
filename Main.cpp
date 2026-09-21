@@ -1,73 +1,21 @@
-#include <iostream>
-#include <cmath>
-#include <string>
-
-#include "InputSystem.h"
-#include "Map.h"
-#include "Player.h"
-
-void RenderMap(const Map& map, const Player& player)
-{
-    std::cout << "\x1b[2J\x1b[H";
-    std::cout << "WASD move | Arrow keys rotate | Space shoot | Esc quit\n\n";
-
-    const int playerX = static_cast<int>(std::floor(player.GetX()));
-    const int playerY = static_cast<int>(std::floor(player.GetY()));
-
-    for (int y = 0; y < map.GetHeight(); ++y)
-    {
-        std::string row = map.GetRow(y);
-        if (y == playerY && playerX >= 0 && playerX < map.GetWidth())
-            row[playerX] = '@';
-
-        std::cout << row << '\n';
-    }
-
-    std::cout << "\n[PLAYER] X: "
-        << player.GetX()
-        << " Y: "
-        << player.GetY()
-        << " Rotation: "
-        << player.GetRotation()
-        << '\n';
-}
+#include <SFML/Graphics.hpp>
 
 int main()
 {
-    const Map map({
-        "########################",
-        "#P.....................#",
-        "#..######..............#",
-        "#......................#",
-        "#........####..........#",
-        "#......................#",
-        "#......######..........#",
-        "#......................#",
-        "#..........####........#",
-        "#......................#",
-        "#..............######..#",
-        "#......................#",
-        "#......................#",
-        "########################"
-    });
+    sf::RenderWindow window(sf::VideoMode(960, 540), "Doom Shooter");
+    window.setVerticalSyncEnabled(true);
 
-    InputSystem input;
-    Player player(map);
-
-    bool running = true;
-
-    while (running)
+    while (window.isOpen())
     {
-        input.Update();
-
-        if (input.IsPressed(InputAction::Quit))
+        sf::Event event{};
+        while (window.pollEvent(event))
         {
-            running = false;
-            continue;
+            if (event.type == sf::Event::Closed)
+                window.close();
         }
 
-        player.Update(input);
-        RenderMap(map, player);
+        window.clear(sf::Color(30, 36, 50));
+        window.display();
     }
 
     return 0;
