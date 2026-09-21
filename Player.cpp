@@ -2,12 +2,14 @@
 
 #include <cmath>
 
-Player::Player()
-    : m_x(2.0f),
-    m_y(2.0f),
+Player::Player(const Map& map)
+    : m_x(map.GetPlayerStartX()),
+    m_y(map.GetPlayerStartY()),
     m_rotation(0.0f),
-    m_moveSpeed(0.1f),
-    m_rotationSpeed(0.1f)
+    m_moveSpeed(1.0f),
+    m_rotationSpeed(0.1f),
+    m_radius(0.2f),
+    m_map(map)
 {
 }
 
@@ -18,16 +20,18 @@ void Player::Update(const InputSystem& input)
     const float strafe = static_cast<float>(
         input.IsPressed(InputAction::MoveRight) - input.IsPressed(InputAction::MoveLeft));
 
-    const float movementLength = std::sqrt(forward * forward + strafe * strafe);
-    if (movementLength > 0.0f)
+    if (forward != 0.0f || strafe != 0.0f)
     {
-        const float normalizedForward = forward / movementLength;
-        const float normalizedStrafe = strafe / movementLength;
         const float sinRotation = std::sin(m_rotation);
         const float cosRotation = std::cos(m_rotation);
 
-        m_x += (sinRotation * normalizedForward + cosRotation * normalizedStrafe) * m_moveSpeed;
-        m_y += (cosRotation * normalizedForward - sinRotation * normalizedStrafe) * m_moveSpeed;
+        const float movementX =
+            (sinRotation * forward + cosRotation * strafe) * m_moveSpeed;
+        const float movementY =
+            (cosRotation * forward - sinRotation * strafe) * m_moveSpeed;
+
+        TryMove(movementX, 0.0f);
+        TryMove(0.0f, movementY);
     }
 
     if (input.IsPressed(InputAction::RotateLeft))
@@ -42,22 +46,34 @@ void Player::Update(const InputSystem& input)
 
 void Player::MoveForward()
 {
-    m_y += m_moveSpeed;
+    TryMove(0.0f, m_moveSpeed);
 }
 
 void Player::MoveBackward()
 {
-    m_y -= m_moveSpeed;
+    TryMove(0.0f, -m_moveSpeed);
 }
 
 void Player::MoveLeft()
 {
-    m_x -= m_moveSpeed;
+    TryMove(-m_moveSpeed, 0.0f);
 }
 
 void Player::MoveRight()
 {
-    m_x += m_moveSpeed;
+    TryMove(m_moveSpeed, 0.0f);
+}
+
+void Player::TryMove(float deltaX, float deltaY)
+{
+    const float newX = m_x + deltaX;
+    const float newY = m_y + deltaY;
+
+    if (m_map.CanOccupy(newX, newY, m_radius))
+    {
+        m_x = newX;
+        m_y = newY;
+    }
 }
 
 void Player::RotateLeft()

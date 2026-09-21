@@ -2,11 +2,12 @@
 #pragma once
 
 #include "InputSystem.h"
+#include "Map.h"
 
 class Player
 {
 public:
-    Player();
+    explicit Player(const Map& map);
 
     void Update(const InputSystem& input);
 
@@ -31,5 +32,10 @@ private:
 
     float m_moveSpeed;
     float m_rotationSpeed;
+    float m_radius;
+
+    const Map& m_map;
+
+    void TryMove(float deltaX, float deltaY);
 };
 
