@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include <SFML/Graphics.hpp>
 
 #include "InputSystem.h"
@@ -32,6 +34,7 @@ int main()
     Player player(map);
     Raycaster raycaster;
     Renderer renderer(960, 540);
+    sf::Clock clock;
 
     while (window.isOpen())
     {
@@ -42,11 +45,12 @@ int main()
                 window.close();
         }
 
+        const float deltaTime = std::min(clock.restart().asSeconds(), 0.1f);
         input.Update();
         if (input.IsPressed(InputAction::Quit))
             window.close();
 
-        player.Update(input);
+        player.Update(input, deltaTime);
         const std::vector<RayHit> hits = raycaster.CastView(map, player, 960);
 
         renderer.Render(window, hits);
