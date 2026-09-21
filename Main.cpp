@@ -2,12 +2,34 @@
 
 #include "InputSystem.h"
 #include "InputAction.h"
+#include "Map.h"
+#include "Player.h"
+#include "Raycaster.h"
 
 int main()
 {
+    const Map map({
+        "########################",
+        "#P.....................#",
+        "#..######..............#",
+        "#......................#",
+        "#........####..........#",
+        "#......................#",
+        "#......######..........#",
+        "#......................#",
+        "#..........####........#",
+        "#......................#",
+        "#..............######..#",
+        "#......................#",
+        "#......................#",
+        "########################"
+    });
+
     sf::RenderWindow window(sf::VideoMode(960, 540), "Doom Shooter");
     window.setVerticalSyncEnabled(true);
     InputSystem input;
+    Player player(map);
+    Raycaster raycaster;
 
     while (window.isOpen())
     {
@@ -21,6 +43,10 @@ int main()
         input.Update();
         if (input.IsPressed(InputAction::Quit))
             window.close();
+
+        player.Update(input);
+        const std::vector<RayHit> hits = raycaster.CastView(map, player, 960);
+        (void)hits;
 
         window.clear(sf::Color(30, 36, 50));
         window.display();
