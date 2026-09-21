@@ -7,13 +7,13 @@ Player::Player(const Map& map)
     m_y(map.GetPlayerStartY()),
     m_rotation(0.0f),
     m_moveSpeed(1.0f),
-    m_rotationSpeed(0.1f),
+    m_rotationSpeed(1.0f),
     m_radius(0.2f),
     m_map(map)
 {
 }
 
-void Player::Update(const InputSystem& input)
+void Player::Update(const InputSystem& input, float deltaTime)
 {
     const float forward = static_cast<float>(
         input.IsPressed(InputAction::MoveForward) - input.IsPressed(InputAction::MoveBackward));
@@ -26,19 +26,19 @@ void Player::Update(const InputSystem& input)
         const float cosRotation = std::cos(m_rotation);
 
         const float movementX =
-            (sinRotation * forward + cosRotation * strafe) * m_moveSpeed;
+            (sinRotation * forward + cosRotation * strafe) * m_moveSpeed * deltaTime;
         const float movementY =
-            (cosRotation * forward - sinRotation * strafe) * m_moveSpeed;
+            (cosRotation * forward - sinRotation * strafe) * m_moveSpeed * deltaTime;
 
         TryMove(movementX, 0.0f);
         TryMove(0.0f, movementY);
     }
 
     if (input.IsPressed(InputAction::RotateLeft))
-        RotateLeft();
+        m_rotation -= m_rotationSpeed * deltaTime;
 
     if (input.IsPressed(InputAction::RotateRight))
-        RotateRight();
+        m_rotation += m_rotationSpeed * deltaTime;
 
     if (input.IsPressed(InputAction::Shoot))
         Shoot();
