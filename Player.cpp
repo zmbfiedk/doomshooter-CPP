@@ -7,7 +7,7 @@ Player::Player(const Map& map)
     m_y(map.GetPlayerStartY()),
     m_rotation(0.0f),
     m_moveSpeed(1.0f),
-    m_rotationSpeed(0.1f),
+    m_rotationSpeed(1.0f),
     m_radius(0.2f),
     m_map(map)
 {
