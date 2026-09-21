@@ -1,71 +1,27 @@
 #include "InputSystem.h"
 
-#include <conio.h>
+#include <SFML/Window/Keyboard.hpp>
 
 void InputSystem::Update()
 {
     m_actions.reset();
 
-    while (_kbhit())
-    {
-        const int key = _getch();
-
-        if (key == 0 || key == 224)
-        {
-            if (!_kbhit())
-                continue;
-
-            switch (_getch())
-            {
-            case 75:
-                m_actions.set(static_cast<size_t>(InputAction::RotateLeft));
-                break;
-
-            case 77:
-                m_actions.set(static_cast<size_t>(InputAction::RotateRight));
-                break;
-
-            default:
-                break;
-            }
-
-            continue;
-        }
-
-        switch (key)
-        {
-        case 'w':
-        case 'W':
-            m_actions.set(static_cast<size_t>(InputAction::MoveForward));
-            break;
-
-        case 's':
-        case 'S':
-            m_actions.set(static_cast<size_t>(InputAction::MoveBackward));
-            break;
-
-        case 'a':
-        case 'A':
-            m_actions.set(static_cast<size_t>(InputAction::MoveLeft));
-            break;
-
-        case 'd':
-        case 'D':
-            m_actions.set(static_cast<size_t>(InputAction::MoveRight));
-            break;
-
-        case ' ':
-            m_actions.set(static_cast<size_t>(InputAction::Shoot));
-            break;
-
-        case 27:
-            m_actions.set(static_cast<size_t>(InputAction::Quit));
-            break;
-
-        default:
-            break;
-        }
-    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        m_actions.set(static_cast<size_t>(InputAction::MoveForward));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        m_actions.set(static_cast<size_t>(InputAction::MoveBackward));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+        m_actions.set(static_cast<size_t>(InputAction::MoveLeft));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        m_actions.set(static_cast<size_t>(InputAction::MoveRight));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        m_actions.set(static_cast<size_t>(InputAction::RotateLeft));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        m_actions.set(static_cast<size_t>(InputAction::RotateRight));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+        m_actions.set(static_cast<size_t>(InputAction::Shoot));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        m_actions.set(static_cast<size_t>(InputAction::Quit));
 }
 
 bool InputSystem::IsPressed(InputAction action) const
