@@ -63,4 +63,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\gun_pistol.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="assets\gun_shotgun.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="assets\gun_rifle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
