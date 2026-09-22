@@ -55,12 +55,15 @@ int main()
             window.close();
 
         player.Update(input, deltaTime);
-        shootingSystem.Update(
+        const ShootingResult shootingResult = shootingSystem.Update(
             map,
             player,
             raycaster,
             input.IsPressed(InputAction::Shoot),
             deltaTime);
+        if (shootingResult.fired)
+            weaponRenderer.TriggerMuzzleFlash();
+        weaponRenderer.Update(deltaTime);
 
         const std::vector<RayHit> hits = raycaster.CastView(map, player, 960);
 
