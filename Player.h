@@ -4,7 +4,7 @@
 #include "InputSystem.h"
 #include "Map.h"
 
-class Player
+class Player 
 {
 public:
     explicit Player(const Map& map);

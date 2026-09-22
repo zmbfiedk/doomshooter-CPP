@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|solutionrelative:Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|solutionrelative:Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\InputAction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|solutionrelative:InputAction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|solutionrelative:Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E7BEA3A5-47C6-4DB9-B4F3-7141A1FF6F6F}|doomshooter.vcxproj|C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -42,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Renderer.cpp",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Renderer.cpp",
               "RelativeDocumentMoniker": "Renderer.cpp",
@@ -70,15 +70,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Player.h",
               "RelativeDocumentMoniker": "Player.h",
               "ToolTip": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Player.h",
               "RelativeToolTip": "Player.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-09-08T09:54:03.454Z"
+              "WhenOpened": "2026-09-08T09:54:03.454Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -106,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "InputAction.h",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\InputAction.h",
               "RelativeDocumentMoniker": "InputAction.h",
@@ -118,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Inputsystem.h",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Inputsystem.h",
               "RelativeDocumentMoniker": "Inputsystem.h",
@@ -130,13 +131,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Main.cpp",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Main.cpp",
               "RelativeDocumentMoniker": "Main.cpp",
               "ToolTip": "C:\\Users\\arthu\\Documents\\MA\\3\\1.1\\BO\\DoomLikeC\u002B\u002B\\doomshooter\\Main.cpp",
               "RelativeToolTip": "Main.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-09-08T07:56:44.312Z",
               "EditorCaption": ""

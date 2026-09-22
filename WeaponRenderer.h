@@ -26,7 +26,4 @@ private:
     std::array<sf::Vector2f, WeaponCount> m_muzzleOffsets;
     float m_muzzleFlashRemaining;
 
-    void RenderGlock(sf::RenderWindow& window, sf::Vector2f position) const;
-    void RenderDoubleBarrel(sf::RenderWindow& window, sf::Vector2f position) const;
-    void RenderM16(sf::RenderWindow& window, sf::Vector2f position) const;
 };
