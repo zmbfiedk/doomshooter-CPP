@@ -19,8 +19,6 @@ public:
     void RotateLeft();
     void RotateRight();
 
-    void Shoot();
-
     float GetX() const;
     float GetY() const;
     float GetRotation() const;

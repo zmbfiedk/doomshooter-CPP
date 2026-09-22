@@ -40,8 +40,6 @@ void Player::Update(const InputSystem& input, float deltaTime)
     if (input.IsPressed(InputAction::RotateRight))
         m_rotation += m_rotationSpeed * deltaTime;
 
-    if (input.IsPressed(InputAction::Shoot))
-        Shoot();
 }
 
 void Player::MoveForward()
@@ -84,10 +82,6 @@ void Player::RotateLeft()
 void Player::RotateRight()
 {
     m_rotation += m_rotationSpeed;
-}
-
-void Player::Shoot()
-{
 }
 
 float Player::GetX() const

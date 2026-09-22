@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "Raycaster.h"
 #include "Renderer.h"
+#include "ShootingSystem.h"
 #include "WeaponRenderer.h"
 
 int main()
@@ -35,6 +36,7 @@ int main()
     Player player(map);
     Raycaster raycaster;
     Renderer renderer(960, 540);
+    ShootingSystem shootingSystem;
     WeaponRenderer weaponRenderer(960, 540);
     sf::Clock clock;
 
@@ -53,6 +55,9 @@ int main()
             window.close();
 
         player.Update(input, deltaTime);
+        if (input.IsPressed(InputAction::Shoot))
+            shootingSystem.Shoot(map, player, raycaster);
+
         const std::vector<RayHit> hits = raycaster.CastView(map, player, 960);
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))

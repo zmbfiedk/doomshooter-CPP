@@ -146,6 +146,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Raycaster.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="ShootingSystem.cpp" />
     <ClCompile Include="WeaponRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +156,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Raycaster.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="ShootingSystem.h" />
     <ClInclude Include="WeaponRenderer.h" />
   </ItemGroup>
   <ItemGroup>
