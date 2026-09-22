@@ -25,4 +25,8 @@ private:
     std::size_t m_selectedWeapon;
     std::array<sf::Vector2f, WeaponCount> m_muzzleOffsets;
     float m_muzzleFlashRemaining;
+
+    void RenderPistol(sf::RenderWindow& window, sf::Vector2f position) const;
+    void RenderShotgun(sf::RenderWindow& window, sf::Vector2f position) const;
+    void RenderRifle(sf::RenderWindow& window, sf::Vector2f position) const;
 };
