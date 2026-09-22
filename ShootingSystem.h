@@ -4,8 +4,23 @@
 #include "Player.h"
 #include "Raycaster.h"
 
+struct ShootingResult
+{
+    bool fired = false;
+    RayHit hit;
+};
+
 class ShootingSystem
 {
 public:
-    RayHit Shoot(const Map& map, const Player& player, const Raycaster& raycaster) const;
+    ShootingResult Update(
+        const Map& map,
+        const Player& player,
+        const Raycaster& raycaster,
+        bool shooting,
+        float deltaTime);
+
+private:
+    float m_timeUntilNextShot = 0.0f;
+    const float m_fireInterval = 0.2f;
 };

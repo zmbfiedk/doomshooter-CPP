@@ -55,8 +55,12 @@ int main()
             window.close();
 
         player.Update(input, deltaTime);
-        if (input.IsPressed(InputAction::Shoot))
-            shootingSystem.Shoot(map, player, raycaster);
+        shootingSystem.Update(
+            map,
+            player,
+            raycaster,
+            input.IsPressed(InputAction::Shoot),
+            deltaTime);
 
         const std::vector<RayHit> hits = raycaster.CastView(map, player, 960);
 
