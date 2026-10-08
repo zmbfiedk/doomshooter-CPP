@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Raycaster.h"
+#include "Enemy.h"
 
 class Renderer
 {
@@ -12,6 +13,11 @@ public:
     Renderer(unsigned int width, unsigned int height);
 
     void Render(sf::RenderWindow& window, const std::vector<RayHit>& hits) const;
+    void RenderEnemy(
+        sf::RenderWindow& window,
+        const Player& player,
+        const Enemy& enemy,
+        const std::vector<RayHit>& hits) const;
 
 private:
     unsigned int m_width;

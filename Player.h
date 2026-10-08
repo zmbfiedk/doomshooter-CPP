@@ -22,6 +22,10 @@ public:
     float GetX() const;
     float GetY() const;
     float GetRotation() const;
+    float GetHealth() const;
+    float GetMaxHealth() const;
+    bool IsAlive() const;
+    void TakeDamage(float damage);
 
 private:
     float m_x;
@@ -31,9 +35,10 @@ private:
     float m_moveSpeed;
     float m_rotationSpeed;
     float m_radius;
+    float m_health;
+    float m_maxHealth;
 
     const Map& m_map;
 
     void TryMove(float deltaX, float deltaY);
 };
-

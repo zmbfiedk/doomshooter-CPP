@@ -141,6 +141,8 @@
   <ItemGroup>
     <ClCompile Include="InputAction.cpp" />
     <ClCompile Include="Inputsystem.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="HudRenderer.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -152,6 +154,8 @@
   <ItemGroup>
     <ClInclude Include="InputAction.h" />
     <ClInclude Include="Inputsystem.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="HudRenderer.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Raycaster.h" />

@@ -1,11 +1,56 @@
 #include "Renderer.h"
 
 #include <algorithm>
+#include <cmath>
 
 Renderer::Renderer(unsigned int width, unsigned int height)
     : m_width(width),
     m_height(height)
 {
+}
+
+void Renderer::RenderEnemy(
+    sf::RenderWindow& window,
+    const Player& player,
+    const Enemy& enemy,
+    const std::vector<RayHit>& hits) const
+{
+    if (!enemy.IsAlive())
+        return;
+
+    const float rotation = player.GetRotation();
+    const float forwardX = std::sin(rotation);
+    const float forwardY = std::cos(rotation);
+    const float rightX = std::cos(rotation);
+    const float rightY = -std::sin(rotation);
+    const float relativeX = enemy.GetX() - player.GetX();
+    const float relativeY = enemy.GetY() - player.GetY();
+    const float depth = relativeX * forwardX + relativeY * forwardY;
+    if (depth <= 0.05f)
+        return;
+
+    const float planeLength = std::tan(1.0471976f * 0.5f);
+    const float cameraX = (relativeX * rightX + relativeY * rightY)
+        / (depth * planeLength);
+    const int column = static_cast<int>(
+        (cameraX + 1.0f) * 0.5f * static_cast<float>(m_width));
+    if (column < 0 || column >= static_cast<int>(hits.size()))
+        return;
+
+    if (hits[column].hit && depth >= hits[column].distance)
+        return;
+
+    const float height = std::min(
+        static_cast<float>(m_height) * 1.5f,
+        static_cast<float>(m_height) / depth);
+    const float width = height * 0.65f;
+    sf::RectangleShape body(sf::Vector2f(width, height));
+    body.setOrigin(width * 0.5f, height * 0.5f);
+    body.setPosition(
+        static_cast<float>(column) * m_width / hits.size(),
+        static_cast<float>(m_height) * 0.5f);
+    body.setFillColor(sf::Color(190, 25, 30));
+    window.draw(body);
 }
 
 void Renderer::Render(sf::RenderWindow& window, const std::vector<RayHit>& hits) const

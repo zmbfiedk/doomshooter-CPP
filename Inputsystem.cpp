@@ -20,6 +20,8 @@ void InputSystem::Update()
         m_actions.set(static_cast<size_t>(InputAction::RotateRight));
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
         m_actions.set(static_cast<size_t>(InputAction::Shoot));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+        m_actions.set(static_cast<size_t>(InputAction::Reload));
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         m_actions.set(static_cast<size_t>(InputAction::Quit));
 }
