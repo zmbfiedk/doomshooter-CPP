@@ -10,6 +10,7 @@ enum class InputAction
     RotateLeft,
     RotateRight,
     Shoot,
+    Reload,
     Quit,
     Count
 };

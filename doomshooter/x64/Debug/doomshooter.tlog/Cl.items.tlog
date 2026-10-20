@@ -1,7 +1,11 @@
 C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\InputAction.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\InputAction.obj
 C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\Inputsystem.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\Inputsystem.obj
+C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\Enemy.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\Enemy.obj
+C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\HudRenderer.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\HudRenderer.obj
 C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\Map.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\Map.obj
 C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\Main.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\Main.obj
 C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\Player.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\Player.obj
 C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\Raycaster.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\Raycaster.obj
 C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\Renderer.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\Renderer.obj
+C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\ShootingSystem.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\ShootingSystem.obj
+C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\WeaponRenderer.cpp;C:\Users\arthu\Documents\MA\3\1.1\BO\DoomLikeC++\doomshooter\doomshooter\x64\Debug\WeaponRenderer.obj

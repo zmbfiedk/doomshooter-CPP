@@ -1,5 +1,6 @@
 #include "Player.h"
 
+#include <algorithm>
 #include <cmath>
 
 Player::Player(const Map& map)
@@ -9,12 +10,17 @@ Player::Player(const Map& map)
     m_moveSpeed(1.0f),
     m_rotationSpeed(1.0f),
     m_radius(0.2f),
+    m_health(100.0f),
+    m_maxHealth(100.0f),
     m_map(map)
 {
 }
 
 void Player::Update(const InputSystem& input, float deltaTime)
 {
+    if (!IsAlive())
+        return;
+
     const float forward = static_cast<float>(
         input.IsPressed(InputAction::MoveForward) - input.IsPressed(InputAction::MoveBackward));
     const float strafe = static_cast<float>(
@@ -40,8 +46,6 @@ void Player::Update(const InputSystem& input, float deltaTime)
     if (input.IsPressed(InputAction::RotateRight))
         m_rotation += m_rotationSpeed * deltaTime;
 
-    if (input.IsPressed(InputAction::Shoot))
-        Shoot();
 }
 
 void Player::MoveForward()
@@ -86,10 +90,6 @@ void Player::RotateRight()
     m_rotation += m_rotationSpeed;
 }
 
-void Player::Shoot()
-{
-}
-
 float Player::GetX() const
 {
     return m_x;
@@ -103,4 +103,25 @@ float Player::GetY() const
 float Player::GetRotation() const
 {
     return m_rotation;
+}
+
+float Player::GetHealth() const
+{
+    return m_health;
+}
+
+float Player::GetMaxHealth() const
+{
+    return m_maxHealth;
+}
+
+bool Player::IsAlive() const
+{
+    return m_health > 0.0f;
+}
+
+void Player::TakeDamage(float damage)
+{
+    if (damage > 0.0f)
+        m_health = std::max(0.0f, m_health - damage);
 }
